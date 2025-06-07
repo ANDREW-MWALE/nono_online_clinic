@@ -9,8 +9,10 @@ import com.example.nono.s_online_clinic.DTO.LeaveStatusUpdateDTO;
 import com.example.nono.s_online_clinic.service.LeaveService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -42,9 +44,19 @@ public class LeaveController {
     public ResponseEntity<LeaveApplicationDTO> applyForLeave(@RequestBody LeaveRequestDTO leaveRequest) {
         return ResponseEntity.ok(leaveService.applyForLeave(leaveRequest));
     }
+    @PutMapping("/status/{leaveId}")
+    public ResponseEntity<LeaveApplicationDTO> updateLeaveStatus(
+            @PathVariable("leaveId") Long leaveId,
+            @RequestBody LeaveStatusUpdateDTO statusUpdate) {
 
-    @PutMapping("/status")
-    public ResponseEntity<LeaveApplicationDTO> updateLeaveStatus(@RequestBody LeaveStatusUpdateDTO statusUpdate) {
+        // Ensure the path variable is set in the DTO
+        statusUpdate.setLeaveId(leaveId);
+
+        // Add validation
+        if (statusUpdate.getStatus() == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Status is required");
+        }
+
         return ResponseEntity.ok(leaveService.updateLeaveStatus(statusUpdate));
     }
 

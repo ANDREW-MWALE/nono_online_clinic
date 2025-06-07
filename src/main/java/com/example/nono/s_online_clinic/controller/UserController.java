@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:8081") // Allow requests from Vue.js dev server
+@CrossOrigin(origins = "http://8080") // Allow requests from Vue.js dev server
 public class UserController {
 
     private final UserService userService;

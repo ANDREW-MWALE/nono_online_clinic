@@ -149,7 +149,7 @@ public class LeaveService {
 
         int remainingBalance = balance.getAnnualLeaveBalance();
 
-        return new LeaveStatsDTO(remainingBalance);
+        return new LeaveStatsDTO(pending , approved, rejected ,remainingBalance);
     }
 
     private int getRemainingBalanceForType(EmployeeLeaveBalance balance, LeaveType type) {
@@ -200,4 +200,6 @@ public class LeaveService {
         dto.setUpdatedBy(leave.getUpdatedBy());
         return dto;
     }
+
+
 }

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class LeaveStatsDTO {
     private int pendingLeaves;
     private int approvedLeaves;
@@ -13,6 +13,13 @@ public class LeaveStatsDTO {
 
 
     public LeaveStatsDTO(int remainingBalance) {
+    }
+
+    public LeaveStatsDTO(int pendingLeaves, int approvedLeaves, int rejectedLeaves, int leaveBalance) {
+        this.pendingLeaves = pendingLeaves;
+        this.approvedLeaves = approvedLeaves;
+        this.rejectedLeaves = rejectedLeaves;
+        this.leaveBalance = leaveBalance;
     }
 
     public int getPendingLeaves() {
