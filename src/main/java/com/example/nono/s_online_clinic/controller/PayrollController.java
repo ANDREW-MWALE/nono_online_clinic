@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/payroll")
-@CrossOrigin(origins = "8080") // allow requests from frontend
+@CrossOrigin(origins = "http://localhost:8080") // allow requests from frontend
 public class PayrollController {
 
     @Autowired

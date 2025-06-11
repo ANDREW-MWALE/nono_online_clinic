@@ -1,10 +1,8 @@
 package com.example.nono.s_online_clinic.service;
 
-import com.example.nono.s_online_clinic.model.Payroll;
 import com.example.nono.s_online_clinic.model.PayrollEntry;
 import com.example.nono.s_online_clinic.repo.PayrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,22 +23,24 @@ public class PayrollService {
 
     public PayrollEntry save(PayrollEntry entry) {
         double gross = entry.getGrossPay();
-        double nhima = entry.getBasic() * 0.01;
+
+        // NHIMA is 10% of the basic salary
+        double nhima = entry.getBasicSalary() * 0.01;
         entry.setNhima(nhima);
-        double napsa = entry.getGrossPay() * 0.05;
+
+        double napsa = gross * 0.05;
         entry.setNapsa(napsa);
 
         double zra = calculatePayee(gross);
         entry.setZra(zra);
 
-        double totalDeduction = (entry.getNhima() + entry.getNapsa()+ entry.getZra());
-
-        double net =(gross - totalDeduction);
+        double totalDeduction = nhima + napsa + zra;
+        double net = gross - totalDeduction;
         entry.setNet(net);
 
         return repository.save(entry);
-
     }
+
     private double calculatePayee(double grossPay) {
         double zra = 0.0;
 

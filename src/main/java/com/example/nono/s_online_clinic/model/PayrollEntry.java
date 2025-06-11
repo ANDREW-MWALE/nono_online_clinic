@@ -12,14 +12,17 @@ import java.time.LocalDate;
 public class PayrollEntry {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
     private String position;
     private String department;
     private LocalDate month;
-    private double basic;
+
+    @Column(name = "basic_salary")
+    private double basicSalary;
+
     private double allowance;
     private double bonus;
     private double loan;
@@ -33,27 +36,16 @@ public class PayrollEntry {
     public PayrollEntry() {
     }
 
-    public PayrollEntry(Long id,
-                        String name,
-                        String position,
-                        String department,
-                        LocalDate month,
-                        double basic,
-                        double allowance,
-                        double bonus,
-                        double loan,
-                        double nhima,
-                        double napsa,
-                        double grossPay,
-                        double zra,
-                        double insurance,
-                        double net) {
+    public PayrollEntry(Long id, String name, String position, String department, LocalDate month,
+                        double basicSalary, double allowance, double bonus, double loan,
+                        double nhima, double napsa, double grossPay, double zra,
+                        double insurance, double net) {
         this.id = id;
         this.name = name;
         this.position = position;
         this.department = department;
         this.month = month;
-        this.basic = basic;
+        this.basicSalary = basicSalary;
         this.allowance = allowance;
         this.bonus = bonus;
         this.loan = loan;
@@ -64,8 +56,6 @@ public class PayrollEntry {
         this.insurance = insurance;
         this.net = net;
     }
-
-    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -107,12 +97,12 @@ public class PayrollEntry {
         this.month = month;
     }
 
-    public double getBasic() {
-        return basic;
+    public double getBasicSalary() {
+        return basicSalary;
     }
 
-    public void setBasic(double basic) {
-        this.basic = basic;
+    public void setBasicSalary(double basicSalary) {
+        this.basicSalary = basicSalary;
     }
 
     public double getAllowance() {
@@ -186,6 +176,4 @@ public class PayrollEntry {
     public void setNet(double net) {
         this.net = net;
     }
-
-
 }
