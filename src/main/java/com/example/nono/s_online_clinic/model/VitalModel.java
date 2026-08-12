@@ -9,19 +9,19 @@ import java.sql.Date;
 @Entity
 @Getter
 @Setter
-@Table(name = "vitals_model")  // Ensure the table name matches your database
+@Table(name = "vitals_model")
 public class VitalModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "v_id")  // Ensure this matches the database column name
+    @Column(name = "v_id")
     private Long vId;
 
     @Column(name = "patient_name")
     private String patientName;
 
-    @Column(name = "body_temperiture")
-    private String bodyTemperiture;
+    @Column(name = "body_temperature")   // fixed typo
+    private String bodyTemperature;       // fixed typo
 
     @Column(name = "pulse_rate")
     private String pulseRate;
@@ -31,6 +31,9 @@ public class VitalModel {
 
     @Column(name = "oxygen_saturation")
     private String oxygenSaturation;
+
+    @Column(name = "recorded_at")        // add this
+    private java.time.LocalDateTime recordedAt;
 
     @Column(name = "created_by")
     private String createdBy;
@@ -45,8 +48,8 @@ public class VitalModel {
     private Date updatedDate;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id", referencedColumnName = "patient_id") // Use correct primary key column
-    @JsonBackReference  // Prevent infinite recursion
-    private PatientModel patientModel;
+    @JoinColumn(name = "patient_id", referencedColumnName = "patient_id")
+    @JsonBackReference
 
+    private PatientModel patientModel;
 }

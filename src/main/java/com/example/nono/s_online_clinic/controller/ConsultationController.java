@@ -24,6 +24,15 @@ public class ConsultationController {
         this.consultationService = consultationService;
         this.patientService = patientService;
     }
+    @PostMapping
+    public ResponseEntity<PatientModel> insertPatientsDetails(@RequestBody PatientModel patientModel) {
+
+        System.out.println(patientModel.getFirstName());
+
+        PatientModel patient = patientService.addPatients(patientModel);
+
+        return ResponseEntity.ok(patient);
+    }
 
     @PostMapping("add")
     public ResponseEntity<ConsultationModel> addConsultation(@RequestBody ConsultationModel consultation) {

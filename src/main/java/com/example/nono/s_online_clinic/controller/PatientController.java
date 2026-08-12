@@ -56,6 +56,7 @@ public class PatientController {
     @PostMapping
     public ResponseEntity<PatientModel> insertPatientsDetails(@RequestBody PatientModel patientModel) {
         PatientModel patient = patientService.addPatients(patientModel);
+        System.out.println("we here one");
         return ResponseEntity.ok(patient);
     }
 

@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8080")  // Remove trailing slash
+                .allowedOrigins("http://localhost:8081")  // Remove trailing slash
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")  // Allow all headers if necessary
                 .allowCredentials(true);  // If your requests include cookies or credentials

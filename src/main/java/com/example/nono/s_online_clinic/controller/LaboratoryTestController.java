@@ -1,6 +1,6 @@
 package com.example.nono.s_online_clinic.controller;
 
-import com.example.nono.s_online_clinic.model.LaboratoryTestModel;
+import com.example.nono.s_online_clinic.model.LaboratoryModel.LaboratoryTestModel;
 import com.example.nono.s_online_clinic.model.OrderModel;
 import com.example.nono.s_online_clinic.service.LaboratoryTestService;
 import org.springframework.beans.factory.annotation.Autowired;

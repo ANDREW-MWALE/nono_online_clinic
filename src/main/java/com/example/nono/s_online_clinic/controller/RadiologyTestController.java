@@ -1,6 +1,5 @@
 package com.example.nono.s_online_clinic.controller;
 
-import com.example.nono.s_online_clinic.model.LaboratoryTestModel;
 import com.example.nono.s_online_clinic.model.RadiologyTestModel;
 import com.example.nono.s_online_clinic.service.RadiologyTestService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.nono.s_online_clinic.service;
 
-import com.example.nono.s_online_clinic.model.LaboratoryTestModel;
+import com.example.nono.s_online_clinic.model.LaboratoryModel.LaboratoryTestModel;
 import com.example.nono.s_online_clinic.model.OrderModel;
 import com.example.nono.s_online_clinic.repo.LabOrderRepo;
 import com.example.nono.s_online_clinic.repo.LaboratoryTestRepo;

@@ -29,9 +29,9 @@ public class RequisitionController {
     public ResponseEntity<List<?>> updateRequisition(@RequestBody RequisitionModel update, @PathVariable Long id){
         return ResponseEntity.ok(requisitionService.updateRequisition(update, id));
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteRequistion(@PathVariable Long id){
-        return ResponseEntity.ok(requisitionService.deleteRequisition(id));
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> deleteRequistion(@PathVariable Long id){
+//        return ResponseEntity.ok(requisitionService.deleteRequisition(id));
+//    }
 
 }

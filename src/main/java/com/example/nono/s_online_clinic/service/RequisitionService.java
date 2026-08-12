@@ -24,7 +24,7 @@ public class RequisitionService {
 
 
     public List<?> updateRequisition(RequisitionModel update, Long id) {
-
+        return updateRequisition(update, id);
     }
 }
-}
+

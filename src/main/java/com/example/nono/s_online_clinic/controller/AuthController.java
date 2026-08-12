@@ -20,7 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "8080")
+@CrossOrigin(origins = "8081")
 public class AuthController {
 
     @Autowired
